@@ -3,6 +3,7 @@
 
 using namespace std;
 
+
 int removeDuplicates(vector<int>& nums) {
     if (nums.empty()) return 0;  // Edge case: if the array is empty, return 0
 
