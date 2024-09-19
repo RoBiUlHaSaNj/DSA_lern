@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
 
+
 // Function to find the first occurrence of X
 int findFirstOccurrence(int arr[], int n, int X) {
     int low = 0, high = n - 1, result = -1;
