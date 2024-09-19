@@ -21,36 +21,36 @@ int main() {
 
 
 //use  bs
-#include <bits/stdc++.h>
-using namespace std;
+#include <iostream>
+#include <vector>
 
-int lowerBound(vector<int> arr, int n, int x) {
-    int low = 0, high = n - 1;
-    int ans = n;
-
-    while (low <= high) {
-        int mid = (low + high) / 2;
-        // maybe an answer
-        if (arr[mid] >= x) {
-            ans = mid;
-            //look for smaller index on the left
-            high = mid - 1;
-        }
-        else {
-            low = mid + 1; // look on the right
+int lower_bound(const std::vector<int>& arr, int target) {
+    int low = 0;
+    int high = arr.size();
+    
+    while (low < high) {
+        int mid = low + (high - low) / 2;
+        
+        if (arr[mid] < target) {
+            low = mid + 1;
+        } else {
+            high = mid;
         }
     }
-    return ans;
+    
+    return low;
 }
 
-int main()
-{
-    vector<int> arr = {3, 5, 8, 15, 19};
-    int n = 5, x = 9;
-    int ind = lowerBound(arr, n, x);
-    cout << "The lower bound is the index: " << ind << "\n";
+int main() {
+    std::vector<int> arr = {1, 2, 4, 4, 6, 8};
+    int target = 4;
+    
+    int lb = lower_bound(arr, target);
+    std::cout << "Lower bound of " << target << " is at index: " << lb << std::endl;
+    
     return 0;
 }
+
 //use ls
 
 #include <bits/stdc++.h>
