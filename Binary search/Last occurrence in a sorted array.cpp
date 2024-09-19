@@ -7,6 +7,7 @@ Explanation: As the target value is 13 , it appears for the first time at index 
 
 using namespace std;
 
+
 int findFirstOccurrence(int arr[], int n, int target) {
     int low = 0, high = n - 1, result = -1;
     
