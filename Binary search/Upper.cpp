@@ -23,37 +23,37 @@ int main()
 }
 
 //use bs
+#include <iostream>
+#include <vector>
 
-#include <bits/stdc++.h>
-using namespace std;
-
-int upperBound(vector<int> &arr, int x, int n) {
-    int low = 0, high = n - 1;
-    int ans = n;
-
-    while (low <= high) {
-        int mid = (low + high) / 2;
-        // maybe an answer
-        if (arr[mid] > x) {
-            ans = mid;
-            //look for smaller index on the left
-            high = mid - 1;
-        }
-        else {
-            low = mid + 1; // look on the right
+int upper_bound(const std::vector<int>& arr, int target) {
+    int low = 0;
+    int high = arr.size();
+    
+    while (low < high) {
+        int mid = low + (high - low) / 2;
+        
+        if (arr[mid] <= target) {
+            low = mid + 1;
+        } else {
+            high = mid;
         }
     }
-    return ans;
+    
+    return low;
 }
 
-int main()
-{
-    vector<int> arr = {3, 5, 8, 9, 15, 19};
-    int n = 6, x = 9;
-    int ind = upperBound(arr, x, n);
-    cout << "The upper bound is the index: " << ind << "\n";
+int main() {
+    std::vector<int> arr = {1, 2, 4, 4, 6, 8};
+    int target = 4;
+    
+    int ub = upper_bound(arr, target);
+    std::cout << "Upper bound of " << target << " is at index: " << ub << std::endl;
+    
     return 0;
 }
+
+
 
 //use vector
 #include <iostream>
