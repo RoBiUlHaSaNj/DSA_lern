@@ -1,13 +1,4 @@
-/*
-. must be sort
-. if  i need to  find target  value
-. divided two  part in array
-.low mid high
-than cheek value if mid lower or mid higher
 
-
-
-*/
 #include <bits/stdc++.h>
 using namespace std;
 int binarserch(int arr[],int low ,int high,int x)//x=target
